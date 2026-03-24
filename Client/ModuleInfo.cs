@@ -9,7 +9,7 @@ namespace OqtaneLabs.ContactForm
         {
             Name = "Contact Form",
             Description = "Contact Form",
-            Version = "6.1.3",
+            Version = "10.0.0",
             Dependencies = "OqtaneLabs.ContactForm.Shared.Oqtane",
             SettingsType = "OqtaneLabs.ContactForm.Settings, OqtaneLabs.ContactForm.Client.Oqtane",
             PackageName = "OqtaneLabs.ContactForm"

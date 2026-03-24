@@ -59,22 +59,22 @@
     public override string RenderMode => RenderModes.Static;
 
     [SupplyParameterFromForm(FormName = "ContactForm")]
-    public string Name { get => ""; set => _name = value; }
+    public string Field1 { get => ""; set => _name = value; }
 
     [SupplyParameterFromForm(FormName = "ContactForm")]
-    public string Email { get => ""; set => _email = value; }
+    public string Field2 { get => ""; set => _email = value; }
 
     [SupplyParameterFromForm(FormName = "ContactForm")]
-    public string Message { get => ""; set => _message = value; }
+    public string Field3 { get => ""; set => _message = value; }
 
     [SupplyParameterFromForm(FormName = "ContactForm")]
-    public string Validation1 { get => ""; set => _validation1 = value; }
+    public string Field5 { get => ""; set => _validation1 = value; }
 
     [SupplyParameterFromForm(FormName = "ContactForm")]
-    public string Validation2 { get => ""; set => _validation2 = value; }
+    public string Field6 { get => ""; set => _validation2 = value; }
 
     [SupplyParameterFromForm(FormName = "ContactForm")]
-    public string Validation3 { get => ""; set => _validation3 = value; }
+    public string Field7 { get => ""; set => _validation3 = value; }
 
     private string _offer = "";
 

@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Client\OqtaneLabs.ContactForm.Client.csproj" />
+  <Project Path="Server\OqtaneLabs.ContactForm.Server.csproj" />
+  <Project Path="Shared\OqtaneLabs.ContactForm.Shared.csproj" />
+  <Project Path="Package\OqtaneLabs.ContactForm.Package.csproj" />
+</Solution>
