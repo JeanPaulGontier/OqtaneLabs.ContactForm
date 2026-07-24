@@ -5,47 +5,47 @@
 
 <div class="container">
     <div class="row mb-1 align-items-center">
-        <Label Class="col-sm-3" For="offer" HelpText="Enter the specific offer you are making to the prospect">Offer: </Label>
+        <Label Class="col-sm-3" For="offer" HelpText="Indiquez l'offre précise que vous proposez au prospect">Offre : </Label>
         <div class="col-sm-9">
             <textarea id="offer" class="form-control" @bind="@_offer" rows="5"></textarea>
         </div>
     </div>
     <div class="row mb-1 align-items-center">
-        <Label Class="col-sm-3" For="response" HelpText="Enter the response to provide to the prospect once they have provided the required information. This should include a Url to the asset they are requesting if applicable.">Response: </Label>
+        <Label Class="col-sm-3" For="response" HelpText="Saisissez la réponse à envoyer au prospect une fois qu'il aura fourni les informations requises. Celle-ci doit inclure, le cas échéant, l'URL du document qu'il demande.">Réponse : </Label>
         <div class="col-sm-9">
             <textarea id="response" class="form-control" @bind="@_response" rows="5"></textarea>
         </div>
     </div>
     <div class="row mb-1 align-items-center">
-        <Label Class="col-sm-3" For="delivery" HelpText="Indicate how the response should be delivered to the prospect">Delivery: </Label>
+        <Label Class="col-sm-3" For="delivery" HelpText="Précisez comment la réponse doit être transmise au prospect">Livraison : </Label>
         <div class="col-sm-9">
             <select id="delivery" class="form-select" @bind="@_delivery">
                 <option value="email">Email</option>
                 <option value="browser">Web</option>
-                <option value="both">Both</option>
+                <option value="both">Les deux</option>
             </select>
         </div>
     </div>
     <div class="row mb-1 align-items-center">
-        <Label Class="col-sm-3" For="recipient" HelpText="Provide the email address of the person who should receive the contact form information">Recipient: </Label>
+        <Label Class="col-sm-3" For="recipient" HelpText="Indiquez l'adresse e-mail de la personne qui doit recevoir les informations transmises via le formulaire de contact.">Destinataire : </Label>
         <div class="col-sm-9">
             <input id="recipient" class="form-control" @bind="@_recipient" />
         </div>
     </div>
     <div class="row mb-1 align-items-center">
-        <Label Class="col-sm-3" For="message" HelpText="Indicate if the message entered by the user is required, optional or hidden">Message: </Label>
+        <Label Class="col-sm-3" For="message" HelpText="Indiquez si le message saisi par l'utilisateur est obligatoire, facultatif ou masqué">Message : </Label>
         <div class="col-sm-9">
             <select id="message" class="form-select" @bind="@_message">
-                <option value="required">Required</option>
-                <option value="optional">Optional</option>
-                <option value="hidden">Hidden</option>
+                <option value="required">Obligatoire</option>
+                <option value="optional">Facultatif</option>
+                <option value="hidden">Caché</option>
             </select>
         </div>
     </div>
 </div>
 
 @code {
-    public override string Title => "Contact Form Settings";
+    public override string Title => "Paramètres du formulaire de contact";
 
     string _offer = "";
     string _response = "";

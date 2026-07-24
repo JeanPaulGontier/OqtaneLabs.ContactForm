@@ -28,28 +28,28 @@ namespace OqtaneLabs.ContactForm.Controllers
         {
             if (ModelState.IsValid)
             {
-                var body = $"Name: {WebUtility.HtmlEncode(ContactForm.Name)}<br />Email: {WebUtility.HtmlEncode(ContactForm.Email)}<br />Message: {WebUtility.HtmlEncode(ContactForm.Message)}";
+                var body = $"Nom : {WebUtility.HtmlEncode(ContactForm.Name)}<br />E-mail : {WebUtility.HtmlEncode(ContactForm.Email)}<br />Message : {WebUtility.HtmlEncode(ContactForm.Message)}";
 
                 var visitor = _visitors.GetVisitor(ContactForm.VisitorId);
                 if (visitor != null)
                 {
-                    body += $"<br />Visitor Id: {ContactForm.VisitorId}<br />Last Visit: {visitor.VisitedOn}<br />First Visit: {visitor.CreatedOn}<br />Total Visits: {visitor.Visits}";
+                    body += $"<br />Id Visiteur : {ContactForm.VisitorId}<br />Dernière visite : {visitor.VisitedOn}<br />Première visite : {visitor.CreatedOn}<br />Nombre total de visites : {visitor.Visits}";
                 }
 
                 var notification = new Notification(ContactForm.SiteId, "", ContactForm.Recipient, ContactForm.Title, body);
                 _notifications.AddNotification(notification);
-                _logger.Log(LogLevel.Information, this, LogFunction.Create, "Notification Added {Notification}", notification);
+                _logger.Log(LogLevel.Information, this, LogFunction.Create, "Notification ajoutée {Notification}", notification);
 
                 if (!string.IsNullOrEmpty(ContactForm.Response))
                 {
                     notification = new Notification(ContactForm.SiteId, ContactForm.Name, ContactForm.Email, ContactForm.Title, ContactForm.Response);
                     _notifications.AddNotification(notification);
-                    _logger.Log(LogLevel.Information, this, LogFunction.Create, "Notification Added {Notification}", notification);
+                    _logger.Log(LogLevel.Information, this, LogFunction.Create, "Notification ajoutée {Notification}", notification);
                 }
             }
             else
             {
-                _logger.Log(LogLevel.Error, this, LogFunction.Security, "Unauthorized ContactForm Post Attempt {ContactForm}", ContactForm);
+                _logger.Log(LogLevel.Error, this, LogFunction.Security, "Tentative non autorisée d'envoi via le formulaire de contact {ContactForm}", ContactForm);
                 HttpContext.Response.StatusCode = (int)HttpStatusCode.Forbidden;
                 ContactForm = null;
             }

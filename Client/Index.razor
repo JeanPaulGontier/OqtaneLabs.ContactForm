@@ -14,13 +14,13 @@
     <input type="hidden" name="__RequestVerificationToken" value="@SiteState.AntiForgeryToken" />
     <div class="container">
         <div class="row mb-1 align-items-center">
-            <Label Class="col-sm-3" For="field1" HelpText="Please enter your name">Name:</Label>
+            <Label Class="col-sm-3" For="field1" HelpText="Veuillez saisir votre nom">Nom :</Label>
             <div class="col-sm-9">
                 <input id="field1" name="field1" class="form-control" @bind="@_name" maxlength="50" />
             </div>
         </div>
         <div class="row mb-1 align-items-center">
-            <Label Class="col-sm-3" For="field2" HelpText="Please enter your email address">Email:</Label>
+            <Label Class="col-sm-3" For="field2" HelpText="Veuillez saisir votre adresse e-mail">E-mail :</Label>
             <div class="col-sm-9">
                 <input id="field2" name="field2" class="form-control" @bind="@_email" maxlength="50" />
             </div>
@@ -28,22 +28,22 @@
         @if (SettingService.GetSetting(ModuleState.Settings, "ContactForm:Message", "required") != "hidden")
         {
             <div class="row mb-1 align-items-center">
-                <Label Class="col-sm-3" For="field3" HelpText="Please include a short message related to your inquiry">Message:</Label>
+                <Label Class="col-sm-3" For="field3" HelpText="Merci d'ajouter un bref message concernant votre demande.">Message :</Label>
                 <div class="col-sm-9">
                     <textarea id="field3" name="field3" class="form-control" @bind="@_message" rows="5" maxlength="1000"></textarea>
                 </div>
             </div>
         }
         <div class="row mb-1 align-items-center">
-            <Label Class="col-sm-3" For="field4" HelpText="Please indicate that you are not a robot">Verification:</Label>
+            <Label Class="col-sm-3" For="field4" HelpText="Veuillez indiquer que vous n'êtes pas un robot">Vérification :</Label>
             <div class="col-sm-9">
                 <input type="checkbox" id="field4" name="field4" class="me-1" onclick="document.getElementById('field6').value = (new Date()).toISOString().slice(0,19).replace('T',' ')">
-                <label class="form-check-label">I'm not a robot!</label>
+                <label class="form-check-label">Je ne suis pas un robot !</label>
             </div>
         </div>
     </div>
     <div class="mt-4" style="text-align: center;">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
     </div>
     <input type="hidden" id="field5" name="field5" @bind="@_validation1" />
     <input type="hidden" id="field6" name="field6" @bind="@_validation2" />
@@ -95,13 +95,13 @@
             _offer = SettingService.GetSetting(ModuleState.Settings, "ContactForm:Offer", "");
             if (string.IsNullOrEmpty(_offer) && UserSecurity.IsAuthorized(PageState.User, RoleNames.Admin))
             {
-                AddModuleMessage("You Must Configure This Contact Form In Module Settings", MessageType.Warning);
+                AddModuleMessage("Vous devez configurer ce formulaire de contact dans les paramètres du module", MessageType.Warning);
             }
         }
         catch (Exception ex)
         {
-            await logger.LogError(ex, "Error Loading Contact Form {Error}", ex.Message);
-            AddModuleMessage("Error Loading Contact Form", MessageType.Error);
+            await logger.LogError(ex, "Erreur lors du chargement du formulaire de contact {Error}", ex.Message);
+            AddModuleMessage("Erreur lors du chargement du formulaire de contact", MessageType.Error);
         }
     }
 
@@ -158,17 +158,17 @@
                         }
                         else
                         {
-                            AddModuleMessage("Thank You! You Should Expect A Response By Email Shortly.", MessageType.Success);
+                            AddModuleMessage("Merci ! Vous devriez recevoir une réponse par e-mail d'ici peu.", MessageType.Success);
                         }
                     }
                     catch
                     {
-                        AddModuleMessage("Error Sending Message", MessageType.Error);
+                        AddModuleMessage("Erreur lors de l'envoi du message", MessageType.Error);
                     }
                 }
                 else
                 {
-                    AddModuleMessage("Please Be Patient... You Should Receive An Email Response Shortly.", MessageType.Success);
+                    AddModuleMessage("Veuillez patienter… Vous devriez recevoir une réponse par e-mail d'ici peu.", MessageType.Success);
                 }
             }
             else
@@ -184,7 +184,7 @@
         }
         else
         {
-            AddModuleMessage("Please Enter All Required Fields", MessageType.Warning);
+            AddModuleMessage("Veuillez remplir tous les champs obligatoires", MessageType.Warning);
         }
     }
 }
